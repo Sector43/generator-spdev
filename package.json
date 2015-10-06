@@ -13,6 +13,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sector43/generator-spdev.git"
+  },
   "files": [
     "generators"
   ],
