@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="app\" Type="ElementManifest" />
+    <ProjectItemFile Source="config.route.js" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="App.less" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="App.css" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="App.min.css" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="App.css.map" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="App.js" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="shared\services\ConstantsService.ts" Target="app\shared\services\" Type="ElementFile" />
+    <ProjectItemFile Source="shared\services\ConstantsService.js" Target="app\shared\services\" Type="ElementFile" />
+    <ProjectItemFile Source="images\AppIcon.png" Target="app\images\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.controller.ts" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.controller.js" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.html" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.less" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.css" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.css.map" Target="app\home\" Type="ElementFile" />
+    <ProjectItemFile Source="home\home.min.css" Target="app\home\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

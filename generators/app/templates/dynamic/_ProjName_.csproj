@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{<%= spdev_projectGUID %>}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace><%= spdev_projName %></RootNamespace>
+    <AssemblyName><%= spdev_projName %></AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>11.1</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{daf7d8da-0cfb-45bb-9987-bf94034482ba}</AppFeaturePartId>
+    <WspPartId>{0102d52c-25bb-452f-8df4-65d337865135}</WspPartId>
+    <WorkflowPartId>{72f3bf9d-be56-43ae-95f3-c78d1448a383}</WorkflowPartId>
+    <CspkgPartId>{f94905de-33cf-4320-a191-c603a1107701}</CspkgPartId>
+    <SqlPackagePartId>{9efbf4a8-20e8-41f1-aeb2-9898876772c3}</SqlPackagePartId>
+    <PreDeploymentCommand>
+    </PreDeploymentCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup id='IncludedFilesRoot'>
+    <Content Include="app\Elements.xml" />
+    <Content Include="gulpfile.js" />
+    <Content Include="app\App.js" />
+    <Content Include="app\home\home.controller.js">
+      <DependentUpon>home.controller.ts</DependentUpon>
+    </Content>
+    <Content Include="app\home\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="app\home\home.html" />
+    <Content Include="app\css\App.css">
+      <DependentUpon>App.less</DependentUpon>
+    </Content>
+    <Content Include="app\css\App.min.css">
+      <DependentUpon>App.css</DependentUpon>
+    </Content>
+    <Content Include="app\shared\services\ConstantsService.js">
+      <DependentUpon>ConstantsService.ts</DependentUpon>
+    </Content>
+	<None Include="app\SharePointProjectItem.spdata">
+      <SharePointProjectItemId><%= spdev_spDataItemId1 %></SharePointProjectItemId>
+    </None>
+    <None Include="bower.json" />
+    
+    <None Include="package.json" />
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    
+    <Content Include="app\Default.aspx" />    
+    <None Include="app\home\home.css.map">
+      <DependentUpon>home.css</DependentUpon>
+    </None>
+    <None Include="app\home\home.less" />
+    <None Include="app\css\App.css.map">
+      <DependentUpon>App.css</DependentUpon>
+    </None>
+    <None Include="app\css\App.less" />
+    <None Include="tsd.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\home\home.min.css">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
+    <Content Include="app\images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{<%= spdev_packageId %>}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{<%= spdev_featureId1 %>}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\home\home.controller.ts" />
+    <TypeScriptCompile Include="app\shared\services\ConstantsService.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\components\" />
+    <Folder Include="app\shared\controllers\" />
+    <Folder Include="app\shared\directives\" />
+    <Folder Include="app\shared\views\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PreBuildEvent>cmd.exe /c gulp -b $(SolutionDir) --color --gulpfile "$(SolutionDir)\gulpfile.js" default</PreBuildEvent>
+  </PropertyGroup>
+</Project>

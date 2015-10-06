@@ -1,0 +1,25 @@
+{
+  "name": "<%= spdev_projName %>",
+  "version": "<%= spdev_appVersion %>",
+  "authors": [ "<%= spdev_author %>" ],
+  "description": "",
+  "license": "<%= spdev_license %>",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+	"typescript_components"
+  ],
+  "devDependencies": {
+    "jquery": "1.11.3",
+    "bootstrap": "~3.3.5",
+    "modernizr": "~2.8.3",
+    "gulp": "~3.9.0",
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-bootstrap": "~0.13.1",
+    "angular-sanitize": "~1.4.3"
+  }
+}

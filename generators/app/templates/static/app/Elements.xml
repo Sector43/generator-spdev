@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="app">
+    <File Path="app\config.route.js" Url="app/config.route.js" ReplaceContent="TRUE" />
+    <File Path="app\App.less" Url="app/App.less" ReplaceContent="TRUE" />
+    <File Path="app\App.css" Url="app/App.css" ReplaceContent="TRUE" />
+    <File Path="app\App.min.css" Url="app/App.min.css" ReplaceContent="TRUE" />
+    <File Path="app\App.css.map" Url="app/App.css.map" ReplaceContent="TRUE" />
+    <File Path="app\App.js" Url="app/App.js" ReplaceContent="TRUE" />
+    <File Path="app\shared\services\ConstantsService.ts" Url="app/shared/services/ConstantsService.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\services\ConstantsService.js" Url="app/shared/services/ConstantsService.js" ReplaceContent="TRUE" />
+    <File Path="app\images\AppIcon.png" Url="app/images/AppIcon.png" ReplaceContent="TRUE" />
+    <File Path="app\home\home.controller.ts" Url="app/home/home.controller.ts" ReplaceContent="TRUE" />
+    <File Path="app\home\home.controller.js" Url="app/home/home.controller.js" ReplaceContent="TRUE" />
+    <File Path="app\home\home.html" Url="app/home/home.html" ReplaceContent="TRUE" />
+    <File Path="app\home\home.less" Url="app/home/home.less" ReplaceContent="TRUE" />
+    <File Path="app\home\home.css" Url="app/home/home.css" ReplaceContent="TRUE" />
+    <File Path="app\home\home.css.map" Url="app/home/home.css.map" ReplaceContent="TRUE" />
+    <File Path="app\home\home.min.css" Url="app/home/home.min.css" ReplaceContent="TRUE" />
+  </Module>
+</Elements>
