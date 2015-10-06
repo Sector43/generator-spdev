@@ -1,10 +1,9 @@
 {
   "name": "generator-spdev",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.1.5",
+  "description": "Yeoman generator to scaffold SharePoint-hosted add-ins",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "Sector43/generator-spdev",
   "author": {
     "name": "David Mann",
     "email": "",
@@ -23,6 +22,7 @@
   "keywords": [
     "yeoman-generator"
   ],
+  "preferGlobal": true,
   "dependencies": {
     "yeoman-generator": "^0.19.0",
     "chalk": "^1.0.0",
