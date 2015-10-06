@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sector43/generator-spdev.git"
+    "url": "git//github.com/sector43/generator-spdev"
   },
   "files": [
     "generators"
