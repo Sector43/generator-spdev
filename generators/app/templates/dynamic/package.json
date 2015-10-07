@@ -1,7 +1,7 @@
 {
   "name": "<%= spdev_projName %>",
   "version": "<%= spdev_appVersion %>",
-  "description": "",
+  "description": "A SHarePoint-hosted app by <%= spdev_author %>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

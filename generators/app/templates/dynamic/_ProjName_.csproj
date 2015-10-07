@@ -44,57 +44,71 @@
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
-  <ItemGroup id='IncludedFilesRoot'>
-    <Content Include="app\Elements.xml" />
-    <Content Include="gulpfile.js" />
-    <Content Include="app\App.js" />
+  <ItemGroup id='IncludedFilesRoot'> 
+    <Content Include="app\css\bootstrap.min.css"/>
+    <Content Include="app\Elements.xml"/>
+	<Content Include="app\Default.aspx" />
+	<Content Include="app\fonts\glyphicons-halflings-regular.svg"/>
+    <Content Include="app\libs\angular-route.min.js"/>
+    <Content Include="app\libs\angular-sanitize.min.js"/>
+    <Content Include="app\libs\angular.min.js"/>
+    <Content Include="app\libs\jquery.min.js"/>
+    <Content Include="app\libs\ui-bootstrap-tpls.min.js"/>
+    <None Include="gulpfile.js"/>
+    <Content Include="app\App.js"/>
     <Content Include="app\home\home.controller.js">
       <DependentUpon>home.controller.ts</DependentUpon>
     </Content>
     <Content Include="app\home\home.css">
       <DependentUpon>home.less</DependentUpon>
     </Content>
-    <Content Include="app\home\home.html" />
-    <Content Include="app\css\App.css">
-      <DependentUpon>App.less</DependentUpon>
-    </Content>
+    <Content Include="app\home\home.html"/>
+    
     <Content Include="app\css\App.min.css">
       <DependentUpon>App.css</DependentUpon>
     </Content>
     <Content Include="app\shared\services\ConstantsService.js">
       <DependentUpon>ConstantsService.ts</DependentUpon>
     </Content>
-	<None Include="app\SharePointProjectItem.spdata">
-      <SharePointProjectItemId><%= spdev_spDataItemId1 %></SharePointProjectItemId>
-    </None>
-    <None Include="bower.json" />
-    
-    <None Include="package.json" />
-    <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
-    
-    <Content Include="app\Default.aspx" />    
-    <None Include="app\home\home.css.map">
-      <DependentUpon>home.css</DependentUpon>
-    </None>
-    <None Include="app\home\home.less" />
-    <None Include="app\css\App.css.map">
-      <DependentUpon>App.css</DependentUpon>
-    </None>
-    <None Include="app\css\App.less" />
-    <None Include="tsd.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="app\home\home.min.css">
+	<Content Include="app\fonts\glyphicons-halflings-regular.eot"/>
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf"/>
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff"/>
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff2"/>
+	<Content Include="app\home\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
     <Content Include="app\images\AppIcon.png">
       <OpcRelationship>manifest-icon</OpcRelationship>
     </Content>
+      
+    
+    <Content Include="app\css\App.css.map">
+      <DependentUpon>App.css</DependentUpon>
+    
+    
+  </Content></ItemGroup>
+  <ItemGroup>
+  <None Include="app\SharePointProjectItem.spdata">
+      <SharePointProjectItemId><%= spdev_spDataItemId1 %></SharePointProjectItemId>
+    </None>
+    <None Include="bower.json"/>
+    <None Include="app\css\App.css">
+      <DependentUpon>App.less</DependentUpon>
+    </None>
+    <None Include="package.json"/>
+    <None Include=".gitattributes"/>
+    <None Include=".gitignore"/>
+    <None Include="app\home\home.css.map">
+      <DependentUpon>home.css</DependentUpon>
+    </None>
+    <None Include="app\home\home.less"/>
+	<None Include="app\css\App.less"/>
+    <None Include="tsd.json"/>
+    
   </ItemGroup>
   <ItemGroup>
     <None Include="Package\Package.package">
-      <PackageId>{<%= spdev_packageId %>}</PackageId>
+      <PackageId>{2f01c3df-11c9-4afb-8bdb-23e9dae72c66}</PackageId>
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
@@ -116,7 +130,7 @@
     <TypeScriptCompile Include="app\shared\services\ConstantsService.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\components\" />
+    
     <Folder Include="app\shared\controllers\" />
     <Folder Include="app\shared\directives\" />
     <Folder Include="app\shared\views\" />

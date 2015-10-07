@@ -8,7 +8,7 @@
 >
   <Properties>
     <Title><%= spdev_projName %></Title>
-    <StartPage>~appWebUrl/default.aspx?{StandardTokens}</StartPage>
+    <StartPage>~appWebUrl/app/default.aspx?{StandardTokens}</StartPage>
   </Properties>
 
   <AppPrincipal>

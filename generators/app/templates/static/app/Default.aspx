@@ -7,13 +7,13 @@
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-    <script src="scripts/angular.min.js"></script> <!--place angular in head to support cloaking-->
+    <script src="libs/angular.min.js"></script> <!--place angular in head to support cloaking-->
     <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
     <script type="text/javascript" src="/_layouts/15/sp.js"></script>
     <meta name="WebPartPageExpansion" content="full" />
 
     
-    <link rel="Stylesheet" type="text/css" href="Content/css/App.min.css" />
+    <link rel="Stylesheet" type="text/css" href="css/App.min.css" />
 
 </asp:Content>
 
@@ -43,15 +43,12 @@
 
     
     
-    <script src="scripts/angular-route.min.js"></script>
-    <script src="scripts/angular-sanitize.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="libs/angular-sanitize.min.js"></script>
     <script src="App.js"></script>
-    <script src="scripts/config.route.js"></script>
-    <script src="shared/constantsservice.js"></script>
-    
-   
-    <script src="scripts/modernizr.js"></script>
-    <script src="scripts/ui-bootstrap-tpls.min.js"></script>
+    <script src="config.route.js"></script>
+    <script src="shared/services/constantsservice.js"></script>
+    <script src="libs/ui-bootstrap-tpls.min.js"></script>
     <script src="home/home.controller.js"></script>
     
 </asp:Content>

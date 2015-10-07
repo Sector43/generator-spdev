@@ -36,11 +36,11 @@ var config = {
     
     fontout: baseout + '/fonts',
     cssout: baseout + '/css',
-    htmlout: baseout,
-    scriptout: baseout + "/scripts",
+    
+    scriptout: baseout + "/libs",
     mapsout: approot + '/maps',
-    aspxout: baseout,
-    foldername : '',
+    
+    
 
     //#endregion Out paths
 
@@ -76,105 +76,18 @@ var config = {
             'bower_components/angular-route/angular-route.min.js',
             'bower_components/angular-sanitize/angular-sanitize.min.js'
         ]
-    },
+    }
+	};
 
-    modernizr: {
-        name: 'modernizr',
-        bundle: 'modernizer.min.js',
-        scriptsrc: [
-            'bower_components/modernizr/modernizr.js'
-        ]
-    },
+    
     //#endregion Third-party libraries
-
-    //#region Application files
-    root: {
-        name: 'root',
-        bundle: 'app.min.js',
-        scriptsrc: [
-            approot + '/*.js'
-        ],
-        aspxsrc: [
-            approot + '/default.aspx'
-        ],
-        stylesrc: [//start with files in the order they need to be in the output file, leave the *.xx and ! at the end to catch anything where the final file order doesn't matter
-            approot + '/**/*.css',
-            !approot + '/**/*.min.css*/'
-        ]
-
-        
-    },
 
    
     
-    //#endregion Application files
 
-    //#region Images
-    images: {
-        name: 'images',
-        imagesrc: [
-            approot + '/images/*.*'
-        ]
-    },
-    //#endregion Images
+   
 
-    //#region Angular Home files
-    angularHome: {
-        name: 'angularHome',
-        foldername: 'home',
-        bundle: 'home.min.js',
-        scriptsrc: [ //start with files in the order they need to be in the output file, leave the *.js and ! at the end to catch anything where the final file order doesn't matter
-
-
-            approot + '/home/*.js'
-        ],
-        htmlsrc: [
-            approot + '/home/*.html'
-        ]
-    },
-    //#endregion Angular Home files    
-    
-    //#region Angular shared files
-    sharedControllers: {
-        name: 'sharedControllers',
-        scriptout: 'shared',
-        scriptsrc: [
-            approot + '/shared/Controllers/*.js'
-        ],
-        bundle: 'sharedControllers.min.js'
-    },
-
-    sharedDirectives: {
-        name: 'sharedDirectives',
-        scriptout: 'shared',
-        scriptsrc: [
-            approot + '/shared/Directives/*.js'
-        ],
-        bundle: 'sharedDirectives.min.js'
-    },
-
-    sharedServices: {
-        name: 'sharedServices',
-        scriptout: 'shared',
-        scriptsrc: [
-            approot + '/shared/Services/*.js'
-        ],
-        bundle: 'sharedServices.min.js'
-    },
-
-    sharedViews: {
-        name: 'sharedViews',
-        htmlout: 'shared',
-        htmlsrc: [
-            approot + '/shared/Views/*.html'
-        ]
-    },
-    //#endregion Angular shared files
-};
-
-
-
-var sections = ['angular', 'angularHome','bootstrap','modernizr','jquery','angularShared', 'root'];
+var sections = [<%= spdev_sections %>];
 
 //#endregion configuration
 
@@ -188,15 +101,6 @@ function sectionHasProperty(oneSection, targetProp) {
 
 }
 
-//function getFolderName(sectionObj) {   
-//    if (sectionHasProperty(sectionObj, 'foldername')) {
-//        return sectionObj.foldername; 
-//    } else{
-//        return '';
-//    }
-
-   
-//}
 
 function getsectionValueOrDefault(propName, sectionObj) {
     //use section-specific value if provided, otherwise fallback on default
@@ -228,7 +132,7 @@ function processScripts(oneSection) {
         return null;
     }
 
-   // var foldername = getsectionValueOrDefault('folderName', oneSection);
+   
     var scriptout = getsectionValueOrDefault("scriptout", oneSection);
     gutil.log("Processing scripts to folder " + scriptout);
 
@@ -285,43 +189,6 @@ function processStyles(oneSection) {
 
 }
 
-function processHtml(oneSection) {
-    gutil.log("Running processHtml in mode: " + config.mode + " for section: " + oneSection.name);
-    if (!sectionHasProperty(oneSection, "htmlsrc")) {
-        gutil.log("Skipping Script processing - no htmlsrc specified");
-        return null;
-    }
-    //var foldername = getFolderName(oneSection);
-    var htmlout = getsectionValueOrDefault("htmlout", oneSection);
-    gutil.log("Processing Html to folder " + htmlout);
-
-    
-   
-    //del([
-    //    htmlout + "/*.html"
-    //]);
-
-    if (config.mode !== "development") {
-        gulp.src(oneSection.htmlsrc)
-            .pipe(htmlmin({
-                collapseWhitespace: true,
-                removeComments: true,
-                conservativeCollapse: true,
-                preserveLineBreaks: true,
-                collapseBooleanAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                removeIgnored: true,
-                caseSensitive: true,
-                maxLineLength: 120
-            }))
-            .pipe(gulp.dest(htmlout));
-    } else {
-        gulp.src(oneSection.htmlsrc)
-        .pipe(gulp.dest(htmlout));
-    }
-    return null;
-}
 
 function processFonts(oneSection) {
     gutil.log("Running processFonts in mode: " + config.mode + " for section: " + oneSection.name);
@@ -350,67 +217,12 @@ function processFonts(oneSection) {
     return null;
 }
 
-function processAspx(oneSection) {
-    gutil.log("Running processAspx in mode: " + config.mode + " for section: " + oneSection.name);
-    if (!sectionHasProperty(oneSection, "aspxsrc")) {
-        gutil.log("Skipping ASPX processing - no aspxsrc specified");
-        return null;
-    }
-    //var foldername = getFolderName(oneSection);
-    var aspxout = getsectionValueOrDefault("aspxout", oneSection);
-    gutil.log("Processing ASPX to folder " + aspxout);
-
-
-
-    //del([
-    //    aspxout + "/*.aspx"
-   // ]);
-
-    gulp.src(oneSection.aspxsrc)
-         .pipe(gulp.dest(aspxout));
-
-    return null;
-}
-
-
-
-function processImages(oneSection) {
-    gutil.log("Running processImages in mode: " + config.mode + " for section: " + oneSection.name);
-    if (!sectionHasProperty(oneSection, "imagesrc")) {
-        gutil.log("Skipping image processing - no imagesrc specified");
-        return null;
-    }
-    //var foldername = getFolderName(oneSection);
-    var imageout = getsectionValueOrDefault("imageout", oneSection);
-    gutil.log("Processing images to folder " + imageout);
-
-
-
-    
-
-    gutil.log("Processing Images to folder " + imageout);
-
-    //del([
-    //    imageout + "/*.png",
-    //    imageout + "/*.jpg",
-    //    imageout + "/*.jpeg",
-    //    imageout + "/*.gif"
-    //]);
-
-    gulp.src(oneSection.imagesrc)
-         .pipe(gulp.dest(imageout));
-
-    return null;
-}
-
-//#endregion Processors
 
 
 //#region gulp tasks
 
 gulp.task('jquery', [], function() {
     processScripts(config.jquery);
-    processStyles(config.jquery);
 });
 
 gulp.task('bootstrap', [], function () {
@@ -424,37 +236,22 @@ gulp.task('angular', [], function () {
     
 });
 
-gulp.task('modernizr', [], function () {
-    processScripts(config.modernizr);
-    
-});
-
 gulp.task('angularHome', [], function () {
     
-    processScripts(config.angularHome);
-    processStyles(config.angularHome);
-    processHtml(config.angularHome);
+    //processScripts(config.angularHome);
+    //processStyles(config.angularHome);
+    //processHtml(config.angularHome);
 
     
 
-});
-gulp.task('root', [], function () {
-    processScripts(config.root);
-    processStyles(config.root);
-    processHtml(config.root);
-    processAspx(config.root);
-});
-gulp.task('images', [], function () {
-    processImages(config.images);
-    
 });
 
 gulp.task('angularShared', [], function () {
-    processScripts(config.sharedControllers);
-    processScripts(config.sharedDirectives);
-    processScripts(config.sharedServices);
+    //processScripts(config.sharedControllers);
+    //processScripts(config.sharedDirectives);
+    //processScripts(config.sharedServices);
     
-    processHtml(config.sharedViews);
+    //processHtml(config.sharedViews);
 });
 
 gulp.task('production', [], function() {
@@ -464,8 +261,12 @@ gulp.task('production', [], function() {
            
 });
 
-//Set a default tasks
-gulp.task('default', sections, function () {
+
+gulp.task('initialBuild', sections, function () {
+
+});
+
+gulp.task('default', [], function () {
 
 });
 

@@ -55,22 +55,17 @@ module.exports = yeoman.generators.Base.extend({
                 choices: [
                     {
                         name: 'Angular',
-                        value: "angular",
+                        value: "'angular'",
                         checked: true
                     },
                     {
                         name: 'Bootstrap',
-                        value: "bootstrap",
+                        value: "'bootstrap'",
                         checked: true
-                    },
-                    {
-                        name: 'Modernizr',
-                        value: "modernizr",
-                        checked: true
-                    },
+                    },                    
                     {
                         name: 'JQuery',
-                        value: "jquery",
+                        value: "'jquery'",
                         checked: true
                     }
                 ]
@@ -99,7 +94,7 @@ module.exports = yeoman.generators.Base.extend({
             libraries = props.libraries;
 			siteUrl = props.siteUrl;
             if (props.angularShared) {
-                libraries.push("angularShared");
+                libraries.push("'angularShared'");
             }
 
 
@@ -159,8 +154,10 @@ module.exports = yeoman.generators.Base.extend({
 
 
     install: function() {
+	
         this.log(chalk.yellow("Finishing configuration - downloading dependencies.  This could take several minutes"));
         this.installDependencies();
+		
     },
 
 
@@ -198,7 +195,7 @@ module.exports = yeoman.generators.Base.extend({
             this.log(chalk.yellow("Finishing configuration - running tsd"));
             var done = this.async();
             var self = this;
-            this.spawnCommand('gulp', ['default']).on("close", function() {
+            this.spawnCommand('gulp', ['initialBuild']).on("close", function() {
                 self.spawnCommand('tsd', ['reinstall']).on("close", function() {
 
                     self.log(yosay(
