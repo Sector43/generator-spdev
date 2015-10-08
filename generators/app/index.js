@@ -69,20 +69,6 @@ module.exports = yeoman.generators.Base.extend({
                         checked: true
                     }
                 ]
-            },
-            {
-                type: 'confirm',
-                name: 'angularShared',
-                message: 'Include "shared" section for Angular to support services, directives, etc used across the application?',
-                default: true,
-                when: function(answers) {
-                    for (var i = 0; i < answers.libraries.length; i++) {
-                        if (answers.libraries[i].indexOf('angular') > -1) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
             }
         ];
 
@@ -93,9 +79,7 @@ module.exports = yeoman.generators.Base.extend({
             author = props.authorName;
             libraries = props.libraries;
 			siteUrl = props.siteUrl;
-            if (props.angularShared) {
-                libraries.push("'angularShared'");
-            }
+            
 
 
             done();
@@ -139,12 +123,9 @@ module.exports = yeoman.generators.Base.extend({
             console.log("Processing Conditional Files");
             if (this._libraryIsSelected('angular')) {
 				console.log("Adding Angular support");
-                this.fs.copy(this.sourceRoot() + '\\conditional\\angular\\config.route.js', this.destinationRoot() + "\\app\\config.route.js");
-				this.directory('conditional/angular/home', '/app/home');
-				if (this._libraryIsSelected('angularShared')) {
-					console.log("Adding Angular shared elements");
-					this.directory('conditional/angular/shared', '/app/shared');					
-				}
+                
+				this.directory('conditional/angular', '/app');					
+				
             }
 			console.log("Done processing Conditional Files...");
         }
@@ -177,12 +158,9 @@ module.exports = yeoman.generators.Base.extend({
 
 
             if (this._libraryIsSelected('angular')) {
-                csProj('#IncludedFilesRoot').prepend("<Content Include='app\\config.route.js' />");
+                //csProj('#IncludedFilesRoot').prepend("<Content Include='app\\config.route.js' />");
 
-            } else {
-                console.log("error");
-            }
-
+            } 
             
 
             csProj('#IncludedFilesRoot').removeAttr('id');

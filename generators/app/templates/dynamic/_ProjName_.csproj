@@ -45,66 +45,84 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup id='IncludedFilesRoot'> 
-    <Content Include="app\css\bootstrap.min.css"/>
-    <Content Include="app\Elements.xml"/>
-	<Content Include="app\Default.aspx" />
-	<Content Include="app\fonts\glyphicons-halflings-regular.svg"/>
-    <Content Include="app\libs\angular-route.min.js"/>
-    <Content Include="app\libs\angular-sanitize.min.js"/>
-    <Content Include="app\libs\angular.min.js"/>
-    <Content Include="app\libs\jquery.min.js"/>
-    <Content Include="app\libs\ui-bootstrap-tpls.min.js"/>
-    <None Include="gulpfile.js"/>
-    <Content Include="app\App.js"/>
+    <Content Include="app\app.core.module.js" />
+    <Content Include="app\blocks\constants.service.js">
+      <DependentUpon>constants.service.ts</DependentUpon>
+    </Content>
+    <Content Include="app\blocks\utils.module.js" />
+    <Content Include="app\blocks\logger.module.js" />
+    <Content Include="app\blocks\logger.service.js">
+      <DependentUpon>logger.service.ts</DependentUpon>
+    </Content>
+    <Content Include="app\blocks\utils.service.js">
+      <DependentUpon>utils.service.ts</DependentUpon>
+    </Content>
+    <Content Include="app\css\bootstrap.min.css" />
+    <Content Include="app\data\data.service.js">
+      <DependentUpon>data.service.ts</DependentUpon>
+    </Content>
+    <Content Include="app\data\data.module.js" />
+    <Content Include="app\Elements.xml" />
+    <Content Include="app\Default.aspx" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\home\home.service.js">
+      <DependentUpon>home.service.ts</DependentUpon>
+    </Content>
+    <Content Include="app\libs\angular-route.min.js" />
+    <Content Include="app\libs\angular-sanitize.min.js" />
+    <Content Include="app\libs\angular.min.js" />
+    <Content Include="app\libs\jquery.min.js" />
+    <Content Include="app\libs\ui-bootstrap-tpls.min.js" />
+    <Content Include="app\Config.js" />
+    <Content Include="Elements.xml" />
+    <Content Include="app\home\home.module.js" />
+    
+    <Content Include="app\app.module.js" />
     <Content Include="app\home\home.controller.js">
       <DependentUpon>home.controller.ts</DependentUpon>
     </Content>
     <Content Include="app\home\home.css">
       <DependentUpon>home.less</DependentUpon>
     </Content>
-    <Content Include="app\home\home.html"/>
-    
+    <Content Include="app\home\home.html" />
     <Content Include="app\css\App.min.css">
       <DependentUpon>App.css</DependentUpon>
     </Content>
-    <Content Include="app\shared\services\ConstantsService.js">
-      <DependentUpon>ConstantsService.ts</DependentUpon>
-    </Content>
-	<Content Include="app\fonts\glyphicons-halflings-regular.eot"/>
-    <Content Include="app\fonts\glyphicons-halflings-regular.ttf"/>
-    <Content Include="app\fonts\glyphicons-halflings-regular.woff"/>
-    <Content Include="app\fonts\glyphicons-halflings-regular.woff2"/>
-	<Content Include="app\home\home.min.css">
+    <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\home\home.min.css">
       <DependentUpon>home.css</DependentUpon>
     </Content>
     <Content Include="app\images\AppIcon.png">
       <OpcRelationship>manifest-icon</OpcRelationship>
     </Content>
-      
-    
     <Content Include="app\css\App.css.map">
       <DependentUpon>App.css</DependentUpon>
-    
-    
-  </Content></ItemGroup>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
-  <None Include="app\SharePointProjectItem.spdata">
+    <None Include="app\SharePointProjectItem.spdata">
       <SharePointProjectItemId><%= spdev_spDataItemId1 %></SharePointProjectItemId>
     </None>
-    <None Include="bower.json"/>
+	
+	
+	
+    <None Include="gulpfile.js" />
+    <None Include="bower.json" />
     <None Include="app\css\App.css">
       <DependentUpon>App.less</DependentUpon>
     </None>
-    <None Include="package.json"/>
-    <None Include=".gitattributes"/>
-    <None Include=".gitignore"/>
+    <None Include="package.json" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="app\home\home.css.map">
       <DependentUpon>home.css</DependentUpon>
     </None>
-    <None Include="app\home\home.less"/>
-	<None Include="app\css\App.less"/>
-    <None Include="tsd.json"/>
-    
+    <None Include="app\home\home.less" />
+    <None Include="app\css\App.less" />    
+    <None Include="tsd.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package\Package.package">
@@ -126,15 +144,14 @@
     </AppManifestFile>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\blocks\utils.service.ts" />
+    <TypeScriptCompile Include="app\blocks\logger.service.ts" />
+    <TypeScriptCompile Include="app\data\data.service.ts" />
     <TypeScriptCompile Include="app\home\home.controller.ts" />
-    <TypeScriptCompile Include="app\shared\services\ConstantsService.ts" />
+    <TypeScriptCompile Include="app\home\home.service.ts" />
+    <TypeScriptCompile Include="app\blocks\constants.service.ts" />
   </ItemGroup>
-  <ItemGroup>
-    
-    <Folder Include="app\shared\controllers\" />
-    <Folder Include="app\shared\directives\" />
-    <Folder Include="app\shared\views\" />
-  </ItemGroup>
+ 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

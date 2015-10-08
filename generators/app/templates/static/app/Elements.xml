@@ -1,45 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <Module Name="app" Path="app" Url="app">
-    <File Path="config.route.js"                          Url="config.route.js"                          ReplaceContent="TRUE" />
+    <File Path="config.js"                                Url="config.js"                                ReplaceContent="TRUE" />
     <File Path="Default.aspx"                             Url="Default.aspx"                             ReplaceContent="TRUE" />
-    <File Path="App.js"                                   Url="App.js"                                   ReplaceContent="TRUE" />
-    <File Path="shared\services\ConstantsService.js"      Url="shared/services/ConstantsService.js"      ReplaceContent="TRUE" />
-    <File Path="images\AppIcon.png"                       Url="images/AppIcon.png"                       ReplaceContent="TRUE" />
-	<File Path="App.js"                                   Url="App.js"                                   ReplaceContent="TRUE" />
-    <File Path="config.route.js"                          Url="config.route.js"                          ReplaceContent="TRUE" />
-    
+    <File Path="app.module.js"                            Url="App.module.js"                            ReplaceContent="TRUE" />
+    <File Path="app.core.module.js"                       Url="app.core.module.js"                       ReplaceContent="TRUE" />
+   </Module>
+   
+   <Module Name="images" Path="app\images" Url="app/images">
+    <File Path="AppIcon.png"                              Url="AppIcon.png"                              ReplaceContent="TRUE" />
    </Module>
    
    <Module Name="home" Path="app\home" Url="app/home"> 
-    <File Path="home.controller.js"                  Url="home.controller.js"                  ReplaceContent="TRUE" />
-    <File Path="home.html"                           Url="home.html"                           ReplaceContent="TRUE" />
-    <File Path="home.css.map"                        Url="home.css.map"                        ReplaceContent="TRUE" />
-    <File Path="home.min.css"                        Url="home.min.css"                        ReplaceContent="TRUE" />  
-	<File Path="home.controller.js"                  Url="home.controller.js"                  ReplaceContent="TRUE" />
+    <File Path="home.controller.js"                       Url="home.controller.js"                       ReplaceContent="TRUE" />
+    <File Path="home.html"                                Url="home.html"                                ReplaceContent="TRUE" />
+    <File Path="home.css.map"                             Url="home.css.map"                             ReplaceContent="TRUE" />
+    <File Path="home.min.css"                             Url="home.min.css"                             ReplaceContent="TRUE" />  
+	<File Path="home.service.js"                          Url="home.service.js"                          ReplaceContent="TRUE" />
+	<File Path="home.module.js"                           Url="home.module.js"                           ReplaceContent="TRUE" />
    </Module>
    
    <Module Name="fonts" Path="app\fonts" Url="app/fonts"> 
-    <File Path="glyphicons-halflings-regular.eot"   Url="glyphicons-halflings-regular.eot"   ReplaceContent="TRUE" />
-    <File Path="glyphicons-halflings-regular.svg"   Url="glyphicons-halflings-regular.svg"   ReplaceContent="TRUE" />
-    <File Path="glyphicons-halflings-regular.ttf"   Url="glyphicons-halflings-regular.ttf"   ReplaceContent="TRUE" />
-    <File Path="glyphicons-halflings-regular.woff"  Url="glyphicons-halflings-regular.woff"  ReplaceContent="TRUE" />
-    <File Path="glyphicons-halflings-regular.woff2" Url="glyphicons-halflings-regular.woff2" ReplaceContent="TRUE" />   
+    <File Path="glyphicons-halflings-regular.eot"         Url="glyphicons-halflings-regular.eot"         ReplaceContent="TRUE" />
+    <File Path="glyphicons-halflings-regular.svg"         Url="glyphicons-halflings-regular.svg"         ReplaceContent="TRUE" />
+    <File Path="glyphicons-halflings-regular.ttf"         Url="glyphicons-halflings-regular.ttf"         ReplaceContent="TRUE" />
+    <File Path="glyphicons-halflings-regular.woff"        Url="glyphicons-halflings-regular.woff"        ReplaceContent="TRUE" />
+    <File Path="glyphicons-halflings-regular.woff2"       Url="glyphicons-halflings-regular.woff2"       ReplaceContent="TRUE" />   
   </Module>
   
   <Module Name="css" Path="app\css" Url="app/css">
-    <File Path="App.min.css"                          Url="App.min.css"                          ReplaceContent="TRUE" />
-    <File Path="App.css.map"                          Url="App.css.map"                          ReplaceContent="TRUE" />
-    <File Path="bootstrap.min.css"                    Url="bootstrap.min.css"                    ReplaceContent="TRUE" />
-    
+    <File Path="App.min.css"                              Url="App.min.css"                              ReplaceContent="TRUE" />
+    <File Path="App.css.map"                              Url="App.css.map"                              ReplaceContent="TRUE" />
+    <File Path="bootstrap.min.css"                        Url="bootstrap.min.css"                        ReplaceContent="TRUE" />    
   </Module>
   
   <Module Name="scripts" Path="app\libs" Url="app/libs">
-    <File Path="angular-route.min.js"             Url="angular-route.min.js"             ReplaceContent="TRUE" />
-    <File Path="angular-sanitize.min.js"          Url="angular-sanitize.min.js"          ReplaceContent="TRUE" />
-    <File Path="angular.min.js"                   Url="angular.min.js"                   ReplaceContent="TRUE" />    
-    <File Path="jquery.min.js"                    Url="jquery.min.js"                    ReplaceContent="TRUE" />
-    <File Path="ui-bootstrap-tpls.min.js"         Url="ui-bootstrap-tpls.min.js"         ReplaceContent="TRUE" />
-    <File Path="ui-bootstrap-tpls.min.js"         Url="ui-bootstrap-tpls.min.js"         ReplaceContent="TRUE" />
+    <File Path="angular-route.min.js"                     Url="angular-route.min.js"                     ReplaceContent="TRUE" />
+    <File Path="angular-sanitize.min.js"                  Url="angular-sanitize.min.js"                  ReplaceContent="TRUE" />
+    <File Path="angular.min.js"                           Url="angular.min.js"                           ReplaceContent="TRUE" />    
+    <File Path="jquery.min.js"                            Url="jquery.min.js"                            ReplaceContent="TRUE" />
+    <File Path="ui-bootstrap-tpls.min.js"                 Url="ui-bootstrap-tpls.min.js"                 ReplaceContent="TRUE" />    
   </Module>
+  
+   <Module Name="blocks" Path="app\blocks" Url="app/blocks">
+    <File Path="logger.module.js"                         Url="logger.module.js"                         ReplaceContent="TRUE" />
+    <File Path="constants.service.js"                     Url="constants.service.js"                     ReplaceContent="TRUE" />
+    <File Path="logger.service.js"                        Url="logger.service.js"                        ReplaceContent="TRUE" />
+    <File Path="utils.service.js"                         Url="utils.service.js"                         ReplaceContent="TRUE" />
+    <File Path="utils.module.js"                          Url="utils.module.js"                          ReplaceContent="TRUE" />
+   </Module>
+   
+   <Module Name="data" Path="app\data" Url="app/data">
+    <File Path="data.service.js"                          Url="data.service.js"                          ReplaceContent="TRUE" />
+    <File Path="data.module.js"                           Url="data.module.js"                           ReplaceContent="TRUE" />
+   </Module>
 </Elements>

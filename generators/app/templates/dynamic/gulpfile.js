@@ -236,23 +236,7 @@ gulp.task('angular', [], function () {
     
 });
 
-gulp.task('angularHome', [], function () {
-    
-    //processScripts(config.angularHome);
-    //processStyles(config.angularHome);
-    //processHtml(config.angularHome);
 
-    
-
-});
-
-gulp.task('angularShared', [], function () {
-    //processScripts(config.sharedControllers);
-    //processScripts(config.sharedDirectives);
-    //processScripts(config.sharedServices);
-    
-    //processHtml(config.sharedViews);
-});
 
 gulp.task('production', [], function() {
     config.mode = "production";

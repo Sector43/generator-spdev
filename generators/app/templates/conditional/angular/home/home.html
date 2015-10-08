@@ -1,7 +1,9 @@
-﻿<div data-ng-controller="homeController as home">
+﻿<div> 
     <p>
-        This is the <b>home</b> template.
+        This is the <b>{{vm.name}}</b> template.
     </p>
-    <p>{{temp}}</p>
+    <p>{{vm.temp}}</p>
+    <p>{{vm.message()}}</p>
+    <p>Web Title (retrieved via REST): {{vm.webTitle}}</p>
     
 </div>
