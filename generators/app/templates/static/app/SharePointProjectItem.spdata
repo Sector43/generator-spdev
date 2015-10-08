@@ -35,5 +35,6 @@ xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePoint
     <ProjectItemFile Source="blocks\utils.module.js" Target="app\blocks\" Type="ElementFile" />
     <ProjectItemFile Source="data\data.service.js" Target="app\data\" Type="ElementFile" />
     <ProjectItemFile Source="data\data.module.js" Target="app\data\" Type="ElementFile" />
+	<ProjectItemFile Source="home\welcome.directive.js" Target="app\home\" Type="ElementFile" />
   </Files>
 </ProjectItem>

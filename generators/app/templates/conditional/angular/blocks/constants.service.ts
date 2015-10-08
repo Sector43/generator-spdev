@@ -1,7 +1,8 @@
-﻿
+﻿/// <reference path="../../typescript_components/angularjs/angular.d.ts" />
+
 declare var _spPageContextInfo: any;
 
-(() => {
+(() => { 
     'use strict';
 
    

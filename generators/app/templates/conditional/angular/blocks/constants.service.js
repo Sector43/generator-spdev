@@ -1,3 +1,4 @@
+/// <reference path="../../typescript_components/angularjs/angular.d.ts" />
 (function () {
     'use strict';
     angular

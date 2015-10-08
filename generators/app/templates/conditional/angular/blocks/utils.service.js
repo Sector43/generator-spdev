@@ -4,9 +4,7 @@
     var serviceId = "utilsService";
     angular
         .module('blocks.utils')
-        .factory(serviceId, [
-        Utils
-    ]);
+        .factory(serviceId, Utils);
     function Utils() {
         return {
             hasAValue: hasAValue,

@@ -4,12 +4,9 @@
     var serviceId = "dataService";
     angular
         .module('blocks.data')
-        .factory(serviceId, [
-        '$http',
-        'utilsService',
-        Data
-    ]);
-    function Data($http, utilsService) {
+        .factory(serviceId, Data);
+    Data.$inject = ['$http', 'utilsService', 'loggerService'];
+    function Data($http, utilsService, loggerService) {
         return {
             get: httpGet,
             post: httpPost,
@@ -19,29 +16,21 @@
         };
         var callCount = 0;
         function emptyCallback() { }
-        function doCall(url, success, failure, headers, body, verb) {
+        function doCall(url, headers, body, verb) {
             callCount = ++callCount; //only for performance testing
-            if ("function" !== typeof success) {
-                success = emptyCallback;
-            }
-            if ("function" !== typeof failure) {
-                failure = emptyCallback;
-            }
-            $http({
+            return $http({
                 url: encodeURI(url),
                 method: verb,
                 data: body,
                 headers: headers
             }).then(function (response) {
-                success(response.data);
-            }, function (response) {
-                failure(response);
+                return response.data;
             });
         }
-        function httpGet(url, success, failure, headers) {
-            doCall(url, success, failure, headers, "", "GET");
+        function httpGet(url, headers) {
+            return doCall(url, headers, "", "GET");
         }
-        function postPromiseInternal(url, success, failure, headers, body, action, eTag) {
+        function postInternal(url, headers, body, action, eTag) {
             headers["X-RequestDigest"] = $("#__REQUESTDIGEST").val();
             //#region Content Length header (removed)
             /* Per the XMLHttpRequest spec (http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader-method),
@@ -60,16 +49,16 @@
                 }
             }
             //Make the call
-            doCall(url, success, failure, headers, body, "POST");
+            return doCall(url, headers, body, "POST");
         }
-        function httpDelete(url, success, failure, headers, eTag) {
-            postPromiseInternal(url, success, failure, headers, "", "DELETE", eTag);
+        function httpDelete(url, headers, eTag) {
+            return postInternal(url, headers, "", "DELETE", eTag);
         }
-        function httpPost(url, success, failure, headers, body) {
-            postPromiseInternal(url, success, failure, headers, body, undefined, undefined);
+        function httpPost(url, headers, body) {
+            return postInternal(url, headers, body, undefined, undefined);
         }
-        function httpMerge(url, success, failure, headers, eTag) {
-            postPromiseInternal(url, success, failure, headers, "", "MERGE", eTag);
+        function httpMerge(url, headers, eTag) {
+            return postInternal(url, headers, "", "MERGE", eTag);
         }
     }
     ;

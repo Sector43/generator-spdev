@@ -1,5 +1,5 @@
 ﻿/// <reference path="../../typescript_components/angularjs/angular.d.ts" />
-
+ 
 (() => {
     'use strict';
 
@@ -7,10 +7,7 @@
 
     angular
         .module('blocks.utils')
-        .factory(serviceId,
-        [
-            Utils
-        ]);
+        .factory(serviceId, Utils);
 
 
         function Utils() {

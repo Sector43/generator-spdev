@@ -1,21 +1,18 @@
 ﻿/// <reference path="../../typescript_components/angularjs/angular.d.ts" />
-declare var $: any;
+declare var $;
 (() => {
-    'use strict';
+    'use strict'; 
 
     var serviceId = "dataService";
 
     angular
         .module('blocks.data')
-        .factory(serviceId,
-        [
-            '$http'
-            ,'utilsService'
-            ,Data
-        ]);
+        .factory(serviceId, Data);
+
+    Data.$inject = ['$http', 'utilsService', 'loggerService'];
 
 
-    function Data($http, utilsService) {
+    function Data($http, utilsService, loggerService) {
         return {
             get: httpGet,
             post: httpPost,
@@ -29,39 +26,31 @@ declare var $: any;
 
         function emptyCallback() { }
 
-        function doCall(url, success, failure, headers, body, verb) {
+        function doCall(url: string, headers, body, verb: string) {
             callCount = ++callCount;   //only for performance testing
-            if ("function" !== typeof success) {
-                success = emptyCallback;
-            }
-
-            if ("function" !== typeof failure) {
-                failure = emptyCallback;
-            }
             
-
-            $http({
+            return $http({
                 url: encodeURI(url),   //Make sure to encode the URI
                 method: verb,
                 data: body,
                 headers: headers
             }).then(
                 function (response) {   //success
-                    success(response.data);
-                },
-                function (response) {   //failure
-                    failure(response);
-                });
+                    return response.data;
+                }
+                //don't handle failure here - let it bubble back to caller
+                //response object will be passed to caller as well
+                );
 
             
         }
 
-        function httpGet(url, success, failure, headers ) {
+        function httpGet(url: string, headers ) {
 
-            doCall(url, success, failure, headers, "", "GET");
+            return doCall(url, headers, "", "GET");
         }
 
-        function postPromiseInternal(url, success, failure, headers, body, action, eTag) {
+        function postInternal(url: string, headers, body, action: string, eTag: string) {
             headers["X-RequestDigest"] = $("#__REQUESTDIGEST").val();
 
             //#region Content Length header (removed)
@@ -89,20 +78,20 @@ declare var $: any;
 
 
             //Make the call
-            doCall(url, success, failure, headers, body, "POST");
+            return doCall(url, headers, body, "POST");
         }
 
 
-        function httpDelete(url, success, failure, headers, eTag) {
-            postPromiseInternal(url, success, failure, headers, "", "DELETE", eTag);
+        function httpDelete(url: string, headers, eTag: string) {
+            return postInternal(url, headers, "", "DELETE", eTag);
         }
 
-        function httpPost(url, success, failure, headers, body) {
-            postPromiseInternal(url, success, failure, headers, body, undefined, undefined);
+        function httpPost(url: string, headers, body) {
+            return postInternal(url, headers, body, undefined, undefined);
         }
 
-        function httpMerge(url, success, failure, headers, eTag) {
-            postPromiseInternal(url, success, failure, headers, "", "MERGE", eTag);
+        function httpMerge(url: string, headers, eTag) {
+            return postInternal(url, headers, "", "MERGE", eTag);
         }
 
         

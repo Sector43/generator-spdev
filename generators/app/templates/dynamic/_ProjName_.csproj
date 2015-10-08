@@ -68,6 +68,9 @@
     <Content Include="app\home\home.service.js">
       <DependentUpon>home.service.ts</DependentUpon>
     </Content>
+	<Content Include="app\home\welcome.directive.js">
+      <DependentUpon>welcome.directive.ts</DependentUpon>
+    </Content>
     <Content Include="app\libs\angular-route.min.js" />
     <Content Include="app\libs\angular-sanitize.min.js" />
     <Content Include="app\libs\angular.min.js" />
@@ -114,9 +117,7 @@
     <None Include="app\css\App.css">
       <DependentUpon>App.less</DependentUpon>
     </None>
-    <None Include="package.json" />
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
+    <None Include="package.json" />    
     <None Include="app\home\home.css.map">
       <DependentUpon>home.css</DependentUpon>
     </None>
@@ -150,6 +151,7 @@
     <TypeScriptCompile Include="app\home\home.controller.ts" />
     <TypeScriptCompile Include="app\home\home.service.ts" />
     <TypeScriptCompile Include="app\blocks\constants.service.ts" />
+	<TypeScriptCompile Include="app\home\welcome.directive.ts" />
   </ItemGroup>
  
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

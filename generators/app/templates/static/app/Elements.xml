@@ -18,6 +18,7 @@
     <File Path="home.min.css"                             Url="home.min.css"                             ReplaceContent="TRUE" />  
 	<File Path="home.service.js"                          Url="home.service.js"                          ReplaceContent="TRUE" />
 	<File Path="home.module.js"                           Url="home.module.js"                           ReplaceContent="TRUE" />
+	<File Path="welcome.directive.js"                     Url="welcome.directive.js"                     ReplaceContent="TRUE" />
    </Module>
    
    <Module Name="fonts" Path="app\fonts" Url="app/fonts"> 

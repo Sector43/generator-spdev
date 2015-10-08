@@ -3,10 +3,12 @@
 
     angular
         .module('app')
-        .config(['constants', '$routeProvider', '$httpProvider', config]);
+        .config(Config);
+
+    Config.$inject = ['constants', '$routeProvider', '$httpProvider' ];
 
 
-    function config(constants, $routeProvider, $httpProvider) {
+    function Config(constants, $routeProvider, $httpProvider) {
         baseConfig(constants, $httpProvider);
         setRoutes($routeProvider);
 

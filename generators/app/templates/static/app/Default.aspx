@@ -56,5 +56,5 @@
     <script src="blocks/logger.service.js"></script>
     <script src="blocks/utils.service.js"></script> 
     <script src="data/data.service.js"></script>
-
+	<script src="home/welcome.directive.js"></script>
 </asp:Content>

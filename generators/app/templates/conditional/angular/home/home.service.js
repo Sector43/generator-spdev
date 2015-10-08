@@ -4,12 +4,9 @@
     var serviceId = "homeService";
     angular
         .module('app.home')
-        .factory(serviceId, [
-        'loggerService',
-        'dataService',
-        HomeService
-    ]);
-    function HomeService(loggerService, dataService) {
+        .factory(serviceId, HomeService);
+    HomeService.$inject = ['loggerService', 'dataService', 'constants'];
+    function HomeService(loggerService, dataService, constants) {
         return {
             serviceCall: serviceCall,
             getWebTitle: getWebTitle
@@ -17,14 +14,17 @@
         function serviceCall() {
             return " from " + serviceId;
         }
-        function getWebTitle(vm, constants) {
-            loggerService.log("getWebTitle called", "Retrieving web title");
-            var url = constants.baseUrl + "/_api/web?$select=title";
-            dataService.get(url, function (data) {
-                vm.webTitle = data.d.Title;
+        function getWebTitle(constants) {
+            loggerService.logInfo("getWebTitle called", "Retrieving web title");
+            var url = constants.baseUrl + "/_api/web?select = title";
+            return dataService.get(url).then(function (data) {
+                loggerService.logInfo("web title is " + data.d.Title);
+                return data.d.Title;
             }, function (response) {
-                vm.webTitle = response.statusText;
+                loggerService.logError(response.statusText, loggerService.genericMessage);
+                return "<error>";
             });
+            loggerService.logInfo("done data call");
         }
     }
 })();
