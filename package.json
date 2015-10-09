@@ -1,6 +1,6 @@
 {
   "name": "generator-spdev",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Yeoman generator to scaffold SharePoint-hosted add-ins.  NOTE: This is still in beta testing.",
   "license": "MIT",
   "main": "app/index.js",
