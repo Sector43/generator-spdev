@@ -36,7 +36,7 @@ declare var $;
                 headers: headers
             }).then(
                 function (response) {   //success
-                    return response.data;
+                    return response;
                 }
                 //don't handle failure here - let it bubble back to caller
                 //response object will be passed to caller as well
@@ -51,8 +51,9 @@ declare var $;
         }
 
         function postInternal(url: string, headers, body, action: string, eTag: string) {
+            headers = headers || {};
             headers["X-RequestDigest"] = $("#__REQUESTDIGEST").val();
-
+            headers["Content-Type"] = "application/json;odata=verbose";
             //#region Content Length header (removed)
             /* Per the XMLHttpRequest spec (http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader-method),
                 Content-Length must not be set in code.  Chrome will record an error if you try to.  IE will not.               
@@ -86,12 +87,12 @@ declare var $;
             return postInternal(url, headers, "", "DELETE", eTag);
         }
 
-        function httpPost(url: string, headers, body) {
+        function httpPost(url: string, body, headers) {
             return postInternal(url, headers, body, undefined, undefined);
         }
 
-        function httpMerge(url: string, headers, eTag) {
-            return postInternal(url, headers, "", "MERGE", eTag);
+        function httpMerge(url: string, body, headers, eTag) {
+            return postInternal(url, headers, body, "MERGE", eTag);
         }
 
         

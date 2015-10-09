@@ -36,6 +36,7 @@
             </data-ng-form>
         </div>
     </div>
+    <!--modules-->
     <script src="blocks/utils.module.js"></script>
     <script src="data/data.module.js"></script>
     <script src="blocks/logger.module.js"></script>
@@ -43,18 +44,19 @@
     <script src="app.core.module.js"></script>
     <script src="app.module.js"></script>
     
+    <!--third-party libraries-->
     <script src="libs/angular-route.min.js"></script>
     <script src="libs/angular-sanitize.min.js"></script>
-    
-    
-    <script src="config.js"></script>
-   
-    <script src="blocks/constants.service.js"></script>
     <script src="libs/ui-bootstrap-tpls.min.js"></script>
+    
+    
+    <!--application code-->
+    <script src="config.js"></script>   
+    <script src="blocks/constants.service.js"></script>   
+    <script src="blocks/logger.service.js"></script>
+    <script src="blocks/utils.service.js"></script>  
     <script src="home/home.service.js"></script>
     <script src="home/home.controller.js"></script>
-    <script src="blocks/logger.service.js"></script>
-    <script src="blocks/utils.service.js"></script> 
+    <script src="home/welcome.directive.js"></script>
     <script src="data/data.service.js"></script>
-	<script src="home/welcome.directive.js"></script>
 </asp:Content>
